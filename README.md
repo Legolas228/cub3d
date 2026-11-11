@@ -1,57 +1,72 @@
-# cub3D - 42 Project | Wolfenstein 3D Clone
+# cub3D
 
-## DESCRIPTION
-A C raycasting engine using miniLibX that creates a 3D maze from 2D maps. Inspired by the original Wolfenstein 3D game.
+A small 3D raycasting project written in C as part of the 42 curriculum. It renders a 3D-style view of a maze using a 2D map, textured walls and the miniLibX graphics library. The project is inspired by the early first-person games such as Wolfenstein 3D.
 
-## TECHNICAL DETAILS
-- Language: C (Norm compliant)
-- Graphics: miniLibX library
-- Algorithm: DDA raycasting
-- Textures: 4 directional wall textures
-- Colors: Custom floor/ceiling RGB values
-- Movement: WASD + arrow keys
-- Maps: .cub configuration files
+## My contribution
 
-## REQUIREMENTS
-- gcc compiler
-- miniLibX (provided by 42)
-- X11/MacOS graphical system
+This was a collaborative project. I was primarily responsible for the parsing part, handling the configuration file and map data before they were used by the game.
+
+This included interpreting texture paths and floor/ceiling colours, processing the map layout and checking that the map data followed the expected format.
+
+## Features
+
+- 3D rendering based on a 2D map
+- DDA raycasting
+- Textured walls with separate textures for each direction
+- Configurable floor and ceiling colours
+- Player movement and camera rotation
+- Map and configuration loading from `.cub` files
+- Map validation
+
+## Technologies
+
+- C
+- miniLibX
+- DDA raycasting
+- 2D map parsing and validation
 - Make
 
-## INSTALLATION
-1. Clone repository
-2. Run 'make'
-3. Execute with './cub3D maps/map.cub'
+## Installation and usage
 
-## CONTROLS
-WASD - Movement
-Arrows - Camera rotation
-ESC - Quit game
+Compile the project:
 
-## MAP FORMAT EXAMPLE
+```bash
+make
+```
+
+Run the program with a map file:
+
+```bash
+./cub3D maps/map.cub
+```
+
+## Controls
+
+- `W`, `A`, `S`, `D`: Move
+- Arrow keys: Rotate the camera
+- `ESC`: Exit
+
+## Map configuration
+
+The `.cub` file contains the texture paths, floor and ceiling colours, and the map layout.
+
+Example:
+
+```text
 NO ./path_to_north_texture.xpm
 SO ./path_to_south_texture.xpm
 WE ./path_to_west_texture.xpm
 EA ./path_to_east_texture.xpm
-F 220,100,0 # Floor RGB
-C 225,30,0 # Ceiling RGB
+F 220,100,0
+C 225,30,0
 
 111111
-
 100001
-
 101101
-
 1N0111
-
 111111
+```
 
-## BONUS IDEAS
-- Minimap display
-- Collision detection
+## Context
 
-## NOTES
-- Map must be surrounded by walls
-- Only 6 valid map characters: 0,1,N,S,E,W
-- Textures must be .xpm format
-- Follows 42 coding standards
+cub3D was developed as a team project at 42. Its main goal was to explore basic graphics programming, raycasting and the processing of structured map data in C.
